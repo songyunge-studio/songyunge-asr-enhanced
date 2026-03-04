@@ -1,0 +1,60 @@
+# 宋韵阁 ASR 增强技能 - 配置示例
+# 复制此文件为 config.yaml 并根据需要修改
+
+# ASR 配置
+asr:
+  # 模式：auto（自动选择）或 manual（手动指定）
+  mode: auto
+  
+  # 策略（仅在 manual 模式下使用）
+  # top: 钉钉自动转写 + Edge TTS（推荐）
+  # middle: Whisper + Edge TTS（备用）
+  # bottom: Whisper + sherpa-onnx（离线）
+  strategy: top
+
+# TTS 配置
+tts:
+  # 音色
+  voice: zh-CN-XiaoyiNeural  # 活泼可爱女声
+  
+  # 语速调整（+ 更快，- 更慢）
+  rate: "+15%"
+  
+  # 音调调整（+ 更高，- 更低）
+  pitch: "+8Hz"
+
+# 钉钉配置
+dingtalk:
+  # 是否启用
+  enabled: true
+  
+  # 是否自动回复语音
+  auto_reply_voice: true
+  
+  # 语音文件格式
+  format: mp3
+
+# 日志配置
+logging:
+  # 日志级别：DEBUG, INFO, WARNING, ERROR
+  level: INFO
+  
+  # 日志文件路径
+  file: logs/asr_skill.log
+  
+  # 是否输出到控制台
+  console: true
+
+# 高级配置（一般不需要修改）
+advanced:
+  # Whisper 模型大小
+  # tiny: 最快，准确率稍低
+  # base: 平衡
+  # small: 更准确，较慢
+  whisper_model: tiny
+  
+  # 音频缓存目录
+  audio_cache_dir: /tmp/asr_audio
+  
+  # 最大音频时长（秒）
+  max_audio_duration: 300
